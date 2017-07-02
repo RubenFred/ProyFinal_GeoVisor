@@ -118,6 +118,27 @@
 			layerSubCuencas.setVisibility(false);
 			map.addLayer(layerSubCuencas);
 
+			var layerRiosPrincipales = new OpenLayers.Layer.WMS(
+				"Rios Principales",
+				host + ":8080/geoserver/wms",
+				{
+					layers: 'curso-sig:rios_principales',
+					transparent: true
+				}
+			);
+			layerRiosPrincipales.setVisibility(false);
+			map.addLayer(layerRiosPrincipales);
+
+			var layerRiosSecundarios = new OpenLayers.Layer.WMS(
+				"Rios Secundarios",
+				host + ":8080/geoserver/wms",
+				{
+					layers: 'curso-sig:rios_secundarios',
+					transparent: true
+				}
+			);
+			layerRiosSecundarios.setVisibility(false);
+			map.addLayer(layerRiosSecundarios);
 
 
 
