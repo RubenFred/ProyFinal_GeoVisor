@@ -96,6 +96,27 @@
 			layerBofedales.setVisibility(false);
 			map.addLayer(layerBofedales);
 
+			var layerCuencas = new OpenLayers.Layer.WMS(
+				"Cuencas",
+				host + ":8080/geoserver/wms",
+				{
+					layers: 'curso-sig:cuencas',
+					transparent: true
+				}
+			);
+			layerCuencas.setVisibility(false);
+			map.addLayer(layerCuencas);
+
+			var layerSubCuencas = new OpenLayers.Layer.WMS(
+				"SubCuencas",
+				host + ":8080/geoserver/wms",
+				{
+					layers: 'curso-sig:subcuencas',
+					transparent: true
+				}
+			);
+			layerSubCuencas.setVisibility(false);
+			map.addLayer(layerSubCuencas);
 
 
 
