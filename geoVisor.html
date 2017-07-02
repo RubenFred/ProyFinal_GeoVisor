@@ -33,6 +33,7 @@
 			var controlNavegacion = new OpenLayers.Control.Navigation();
 			var controlZoom = new OpenLayers.Control.PanZoomBar(); // Zoom
             var host = "http://192.168.42.33";
+            OpenLayers.ProxyHost = "/cgi-bin/proxy.cgi?url=";
 
 			var propiedades = {
 				projection: proyeccion,
@@ -151,6 +152,38 @@
 			layerZonasVida.setVisibility(false);
 			map.addLayer(layerZonasVida);
 
+			//*************   fin add  layers  *********
+
+			// control para desplegar informacion de capas OJOJO
+			var	controlInfo = new OpenLayers.Control.WMSGetFeatureInfo({
+				queryVisible: true,              //  cuando este visible la capa  click->mostrar informacion
+				eventListeners: {
+				getfeatureinfo: function (event){
+						
+						var popup = new OpenLayers.Popup.FramedCloud(
+							'Popup',
+							map.getLonLatFromPixel(event.xy),
+							null,
+							event.text,
+							null,
+							true
+						);
+						map.addPopup(popup);
+
+						var info = document.getElementById("informacion");
+						var posicion = map.getLonLatFromPixel(event.xy);
+						info.innerHTML = posicion.lon +" | "+ posicion.lat;
+					    
+					}
+				}
+			});
+			map.addControl(controlInfo);
+			controlInfo.activate();          // activando el control
+
+
+
+
+
 
 
 
@@ -180,5 +213,8 @@
 		<h2>Titulo del Visor</h2>
 	</div>
 	<div id="mapa"></div>
+
+    <div id="informacion"></div>
+
 </body>
 </html>
