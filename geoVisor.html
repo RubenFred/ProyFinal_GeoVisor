@@ -71,7 +71,22 @@
 			layerDepartamentosWMS.setVisibility(false);
 			map.addLayer(layerDepartamentosWMS);
 
+			// Layers WMS desde geoserver Local
+			var layerAreasProtegidas = new OpenLayers.Layer.WMS(
+				"Areas Protegidas",
+				"http://192.168.42.33:8080/geoserver/wms",
+				{
+					layers: 'curso-sig:areas_protegidas',
+					transparent: true
+				}
+			);
+			layerAreasProtegidas.setVisibility(false);
+			map.addLayer(layerAreasProtegidas);
 			
+
+
+
+
 
 
 
