@@ -140,6 +140,17 @@
 			layerRiosSecundarios.setVisibility(false);
 			map.addLayer(layerRiosSecundarios);
 
+			var layerZonasVida = new OpenLayers.Layer.WMS(
+				"Zonas de Vida",
+				host + ":8080/geoserver/wms",
+				{
+					layers: 'curso-sig:zonas_vida',
+					transparent: true
+				}
+			);
+			layerZonasVida.setVisibility(false);
+			map.addLayer(layerZonasVida);
+
 
 
 
