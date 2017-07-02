@@ -21,7 +21,7 @@
 			margin-top: 0;
 		}
 		#mapa{
-			height: 500px;
+			height: 350px;
 			width: 500px;
 			border: solid 3px red;
 		}
@@ -42,9 +42,25 @@
 			var layerOSM = new OpenLayers.Layer.OSM();
 			map.addLayer(layerOSM);
 
-			if(!map.getCenter()){
-			 map.zoomToMaxExtent();
- 			}
+            // Control de cambio de Capas
+			var controlCapas = new OpenLayers.Control.LayerSwitcher();
+		    map.addControl(controlCapas);
+
+			
+
+
+
+
+			// Configuración para mostrar la región de Bolivia
+			// Lon: -64.819336, Lat: -17.379999
+			var LonLat = new OpenLayers.LonLat(-64.819336, -17.379999);
+			var zoom = 5;
+			var LonLatTransformado = LonLat.transform(
+				new OpenLayers.Projection("EPSG:4326"),  
+				map.getProjection()      //new OpenLayers.Projection("EPSG:900913")
+			);
+			map.setCenter(LonLatTransformado, zoom);
+
 
 
 		}
