@@ -32,6 +32,8 @@
 			var proyeccion = new OpenLayers.Projection("EPSG:900913"); //EPSG:900913
 			var controlNavegacion = new OpenLayers.Control.Navigation();
 			var controlZoom = new OpenLayers.Control.PanZoomBar(); // Zoom
+            var host = "http://192.168.42.33";
+
 			var propiedades = {
 				projection: proyeccion,
 				units: 'm',
@@ -74,7 +76,7 @@
 			// Layers WMS desde geoserver Local
 			var layerAreasProtegidas = new OpenLayers.Layer.WMS(
 				"Areas Protegidas",
-				"http://192.168.42.33:8080/geoserver/wms",
+				host + ":8080/geoserver/wms",
 				{
 					layers: 'curso-sig:areas_protegidas',
 					transparent: true
@@ -83,7 +85,16 @@
 			layerAreasProtegidas.setVisibility(false);
 			map.addLayer(layerAreasProtegidas);
 			
-
+			var layerBofedales = new OpenLayers.Layer.WMS(
+				"Bofedales",
+				host + ":8080/geoserver/wms",
+				{
+					layers: 'curso-sig:bofedales',
+					transparent: true
+				}
+			);
+			layerBofedales.setVisibility(false);
+			map.addLayer(layerBofedales);
 
 
 
