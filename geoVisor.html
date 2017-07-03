@@ -98,6 +98,7 @@
 			map.addLayer(layerDepartamentosWMS);
 
 			// Layers WMS desde geoserver Local
+
 			var layerAreasProtegidas = new OpenLayers.Layer.WMS(
 				"Areas Protegidas",
 				host + ":8080/geoserver/wms",
@@ -225,8 +226,8 @@
 			map.setCenter(LonLatTransformado, zoom);
 
 			//*******************  cod  para manejo elementos html
+			        
 			        //  BOTONES RADIO  PARA MAPA BASE
-
 		$('#layers input[type=radio]').change(function() {
 			var layer = $(this).val();
 
@@ -246,6 +247,67 @@
 		});
 
 
+    	 //  PARA CAPAS  CHECKBOX
+ 
+    	$("input[type='checkbox']").on('change', function(){
+
+        	var opcion=$(this).val()
+        
+        if(opcion=="capa1"){
+        	if (this.checked)
+               layerAreasProtegidas.setVisibility(true);
+             else 
+               layerAreasProtegidas.setVisibility(false);
+        }	
+        else if(opcion=="capa2"){
+        	if (this.checked)
+               layerBofedales.setVisibility(true);
+             else 
+               layerBofedales.setVisibility(false);
+
+        }else if(opcion=="capa3"){
+        	if (this.checked)
+               layerCuencas.setVisibility(true);
+             else 
+               layerCuencas.setVisibility(false);
+        }
+        else if(opcion=="capa4"){
+        	if (this.checked)
+               layerSubCuencas.setVisibility(true);
+             else 
+               layerSubCuencas.setVisibility(false);
+        }
+        else if(opcion=="capa5"){
+        	if (this.checked)
+               layerRiosPrincipales.setVisibility(true);
+             else 
+               layerRiosPrincipales.setVisibility(false);
+        }
+        else if(opcion=="capa6"){ 
+        	if (this.checked)
+               layerRiosSecundarios.setVisibility(true);
+             else 
+               layerRiosSecundarios.setVisibility(false);
+        }
+        else if(opcion=="capa7"){  
+        	if (this.checked)
+               layerZonasVida.setVisibility(true);
+             else 
+               layerZonasVida.setVisibility(false);
+        }
+        else if(opcion=="capa8"){  
+        	if (this.checked)
+               layerDepartamentosWMS.setVisibility(true);
+             else 
+               layerDepartamentosWMS.setVisibility(false);
+        }
+        else{
+             alert("no deberia aparecer")
+        }
+
+
+
+    	});
 
 
 
@@ -265,6 +327,18 @@
 			<li><input type="radio" name="layer" value="layerOSM" checked> Layer OSM</li>
 			<li><input type="radio" name="layer" value="layerGoogleSatelital"> Layer MapBox</li>
 
+		</ul>
+		<hr>
+        <ul>
+   			<li><input type="checkbox" name="layer1" value="capa1"> Areas Protegidas</li>
+			<li><input type="checkbox" name="layer2" value="capa2"> Bofedales</li>
+			<li><input type="checkbox" name="layer3" value="capa3"> Cuencas</li>
+			<li><input type="checkbox" name="layer4" value="capa4"> Subcuencas</li>
+			<li><input type="checkbox" name="layer5" value="capa5"> Rios Principales</li>
+			<li><input type="checkbox" name="layer6" value="capa6"> Rios Secundarios</li>
+			<li><input type="checkbox" name="layer7" value="capa7"> Zonas de Vida</li>
+			<li><input type="checkbox" name="layer8" value="capa8"> Division Estatal</li>
+			     
 		</ul>
 
 	</nav>
