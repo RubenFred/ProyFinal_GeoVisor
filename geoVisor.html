@@ -13,10 +13,12 @@
 			height: 100%;
 			width: 100%;
 			margin: 0;
+			
 		}
 		.cabecera{
-			height: 50px;
+			height: 98px;
 			background-color: darkblue;
+			
 		}
 		.cabecera h2{
 			color: #fff;
@@ -26,12 +28,12 @@
 			position: absolute;
 			top: 100px;
 			right: 0;
-			left: 150px;
+			left: 20px;
 			bottom: 0;
 
-			height: 300px;
-			width: 600px;
-			border:solid 3px red;
+			height: 540px;
+			width: 820px;
+			border:solid 3px #0489B1;
 		}
 	#layers {
 		position: absolute;
@@ -218,7 +220,7 @@
 			// Configuración para mostrar la región de Bolivia
 			// Lon: -64.819336, Lat: -17.379999
 			var LonLat = new OpenLayers.LonLat(-64.819336, -17.379999);
-			var zoom = 5;
+			var zoom = 5.5;
 			var LonLatTransformado = LonLat.transform(
 				new OpenLayers.Projection("EPSG:4326"),  
 				map.getProjection()      //new OpenLayers.Projection("EPSG:900913")
@@ -320,22 +322,22 @@
 				map.setCenter(new OpenLayers.LonLat(-68.312988, -15.246736).transform(new OpenLayers.Projection("EPSG:4326"),new OpenLayers.Projection("EPSG:900913")), 7);
 			}
 			if(ciudad=="OR"){   
-				map.setCenter(new OpenLayers.LonLat(-67.862549, -18.361477).transform(new OpenLayers.Projection("EPSG:4326"),new OpenLayers.Projection("EPSG:900913")), 7);
+				map.setCenter(new OpenLayers.LonLat(-67.862549, -18.361477).transform(new OpenLayers.Projection("EPSG:4326"),new OpenLayers.Projection("EPSG:900913")), 8);
 			}
 			if(ciudad=="PT"){   
-				map.setCenter(new OpenLayers.LonLat(-66.522217, -20.598508).transform(new OpenLayers.Projection("EPSG:4326"),new OpenLayers.Projection("EPSG:900913")), 7);
+				map.setCenter(new OpenLayers.LonLat(-66.522217, -20.598508).transform(new OpenLayers.Projection("EPSG:4326"),new OpenLayers.Projection("EPSG:900913")), 8);
 			}
 			if(ciudad=="CB"){    
-				map.setCenter(new OpenLayers.LonLat(-65.632324, -17.189776).transform(new OpenLayers.Projection("EPSG:4326"),new OpenLayers.Projection("EPSG:900913")), 7);
+				map.setCenter(new OpenLayers.LonLat(-65.632324, -17.189776).transform(new OpenLayers.Projection("EPSG:4326"),new OpenLayers.Projection("EPSG:900913")), 8);
 			}
 			if(ciudad=="CH"){   
-				map.setCenter(new OpenLayers.LonLat(-64.313965, -19.887280).transform(new OpenLayers.Projection("EPSG:4326"),new OpenLayers.Projection("EPSG:900913")), 7);
+				map.setCenter(new OpenLayers.LonLat(-64.313965, -19.887280).transform(new OpenLayers.Projection("EPSG:4326"),new OpenLayers.Projection("EPSG:900913")), 8);
 			}
 			if(ciudad=="TJ"){   
-				map.setCenter(new OpenLayers.LonLat(-64.215088, -21.602961).transform(new OpenLayers.Projection("EPSG:4326"),new OpenLayers.Projection("EPSG:900913")), 7);
+				map.setCenter(new OpenLayers.LonLat(-64.215088, -21.602961).transform(new OpenLayers.Projection("EPSG:4326"),new OpenLayers.Projection("EPSG:900913")), 8);
 			}
 			if(ciudad=="PA"){  
-				map.setCenter(new OpenLayers.LonLat(-67.181396, -11.088572).transform(new OpenLayers.Projection("EPSG:4326"),new OpenLayers.Projection("EPSG:900913")), 7);
+				map.setCenter(new OpenLayers.LonLat(-67.181396, -11.088572).transform(new OpenLayers.Projection("EPSG:4326"),new OpenLayers.Projection("EPSG:900913")), 8);
 			}
 			if(ciudad=="BN"){  
 				map.setCenter(new OpenLayers.LonLat(-65.390625, -13.877191).transform(new OpenLayers.Projection("EPSG:4326"),new OpenLayers.Projection("EPSG:900913")), 7);
@@ -357,17 +359,19 @@
 </head>
 <body>
 	<div class="cabecera">
-		<h2>Titulo del Visor</h2>
+		<h2>GeoVisor del Sector Ambiental de Bolivia</h2>
 	</div>
 	<div id="mapa"></div>
 
 	<nav id="layers">
+	    <p>Capas Base</p>
 		<ul>
 			<li><input type="radio" name="layer" value="layerOSM" checked> Layer OSM</li>
 			<li><input type="radio" name="layer" value="layerGoogleSatelital"> Layer MapBox</li>
 
 		</ul>
 		<hr>
+		<p>Capas Disponibles</p>
         <ul>
    			<li><input type="checkbox" name="layer1" value="capa1"> Areas Protegidas</li>
 			<li><input type="checkbox" name="layer2" value="capa2"> Bofedales</li>
