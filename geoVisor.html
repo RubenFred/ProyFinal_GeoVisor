@@ -306,8 +306,47 @@
         }
 
 
-
     	});
+
+    	//  PARA SELECCIONAR DEPARTAMENTOS
+
+    	$('#ciudades').change(function(){
+ 
+			var ciudad = $(this).val()
+ 
+			//alert('Has seleccionado ' + ciudad);
+
+			if(ciudad=="LP"){                       
+				map.setCenter(new OpenLayers.LonLat(-68.312988, -15.246736).transform(new OpenLayers.Projection("EPSG:4326"),new OpenLayers.Projection("EPSG:900913")), 7);
+			}
+			if(ciudad=="OR"){   
+				map.setCenter(new OpenLayers.LonLat(-67.862549, -18.361477).transform(new OpenLayers.Projection("EPSG:4326"),new OpenLayers.Projection("EPSG:900913")), 7);
+			}
+			if(ciudad=="PT"){   
+				map.setCenter(new OpenLayers.LonLat(-66.522217, -20.598508).transform(new OpenLayers.Projection("EPSG:4326"),new OpenLayers.Projection("EPSG:900913")), 7);
+			}
+			if(ciudad=="CB"){    
+				map.setCenter(new OpenLayers.LonLat(-65.632324, -17.189776).transform(new OpenLayers.Projection("EPSG:4326"),new OpenLayers.Projection("EPSG:900913")), 7);
+			}
+			if(ciudad=="CH"){   
+				map.setCenter(new OpenLayers.LonLat(-64.313965, -19.887280).transform(new OpenLayers.Projection("EPSG:4326"),new OpenLayers.Projection("EPSG:900913")), 7);
+			}
+			if(ciudad=="TJ"){   
+				map.setCenter(new OpenLayers.LonLat(-64.215088, -21.602961).transform(new OpenLayers.Projection("EPSG:4326"),new OpenLayers.Projection("EPSG:900913")), 7);
+			}
+			if(ciudad=="PA"){  
+				map.setCenter(new OpenLayers.LonLat(-67.181396, -11.088572).transform(new OpenLayers.Projection("EPSG:4326"),new OpenLayers.Projection("EPSG:900913")), 7);
+			}
+			if(ciudad=="BN"){  
+				map.setCenter(new OpenLayers.LonLat(-65.390625, -13.877191).transform(new OpenLayers.Projection("EPSG:4326"),new OpenLayers.Projection("EPSG:900913")), 7);
+			}
+			if(ciudad=="SC"){  
+				map.setCenter(new OpenLayers.LonLat(-61.973877, -17.273722).transform(new OpenLayers.Projection("EPSG:4326"),new OpenLayers.Projection("EPSG:900913")), 7);
+			}
+
+ 
+		});   // fin para seleccionar deptos
+
 
 
 
@@ -340,6 +379,18 @@
 			<li><input type="checkbox" name="layer8" value="capa8"> Division Estatal</li>
 			     
 		</ul>
+		<hr>
+		<select id='ciudades' name='ciudades'>
+			<option value='LP'>La Paz</option>
+			<option value='OR'>Oruro</option>
+			<option value='PT'>Potosi</option>
+			<option value='CB'>Cochabamba</option>
+			<option value='CH'>Chuquisaca</option>
+			<option value='TJ'>Tarija</option>
+			<option value='PA'>Pando</option>
+			<option value='BN'>Beni</option>
+			<option value='SC'>Santa Cruz</option>
+	    </select>
 
 	</nav>
 
