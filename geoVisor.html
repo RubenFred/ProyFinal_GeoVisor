@@ -75,7 +75,9 @@
 	
 	}
 
-
+    #miniVistaMap_control{
+    	
+    }
 		
 	</style>
 	<script type="text/javascript">
@@ -233,13 +235,11 @@
 			controlInfo.activate();          // activando el control
 
 
+            //  control miniVistaMapa
+			map.addControl(new OpenLayers.Control.OverviewMap({
+				div: document.getElementById('miniVistaMap_control')
+			}));
 
-
-
-
-			// control mini-Map
-		    var controlOverview = new OpenLayers.Control.OverviewMap();
-		    map.addControl(controlOverview);
 
             // Control de cambio de Capas
 			var controlCapas = new OpenLayers.Control.LayerSwitcher();
@@ -428,6 +428,10 @@
 			<option value='BN'>Beni</option>
 			<option value='SC'>Santa Cruz</option>
 	    </select>
+	    <br><br>
+	    <hr>
+
+	    <div id='miniVistaMap_control'></div>
 
 	</nav>
 
